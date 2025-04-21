@@ -1,0 +1,17 @@
+import java.io.*;
+import java.net.*;
+
+class NewClass {
+    public static void sendPingRequest(String ipAddress) throws UnknownHostException, IOException {
+        InetAddress ip = InetAddress.getByName(ipAddress);
+        System.out.println("Pinging " + ipAddress + "...");
+        System.out.println(ip.isReachable(5000) ? "Host is reachable" : "Host is unreachable");
+    }
+    
+    public static void main(String[] args) throws UnknownHostException, IOException {
+        String[] addresses = {"127.0.0.1", "127.0.0.2", "145.154.42.58"};
+        for (String address : addresses) {
+            sendPingRequest(address);
+        }
+    }
+}
